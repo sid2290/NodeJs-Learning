@@ -1,9 +1,10 @@
+var greeting = 'Hello world';
+
 // passing the function constructor directly
-function Greetr() {
-    this.greeting = 'Hello World!!';
-    this.greet = function() {
-        console.log(this.greeting);
-    }
+function greet() {
+        console.log(greeting);
 }
 
-module.exports = Greetr;
+module.exports = {
+    greet: greet   
+    }
