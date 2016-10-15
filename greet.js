@@ -1,4 +1,4 @@
-// replacing module.exports object with my own object
+// passing the function constructor directly
 function Greetr() {
     this.greeting = 'Hello World!!';
     this.greet = function() {
@@ -6,4 +6,4 @@ function Greetr() {
     }
 }
 
-module.exports = new Greetr();
+module.exports = Greetr;
