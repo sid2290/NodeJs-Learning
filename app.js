@@ -1,11 +1,14 @@
+var Emitter = require('./greet');
 
-var util = require('util');
-var greet = require('./greet');
+var emtr = new Emitter();
 
-greet.greet();
+emtr.on('greet', function() {
+    console.log('Somewhere, someone said hello.');
+});
 
-// using native module util
+emtr.on('greet', function() {
+    console.log('A greeting occured!');
+});
 
-var name = " Sid ";
-var greeting = util.format('Hello, %s', name);
-util.log(greeting);
+console.log('Hello!');
+emtr.emit('greet');

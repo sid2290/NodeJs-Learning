@@ -1,10 +1,19 @@
-var greeting = 'Hello world';
-
-// passing the function constructor directly
-function greet() {
-        console.log(greeting);
+// Function constructor
+function Emitter() {
+    this.events = {};
 }
 
-module.exports = {
-    greet: greet   
+Emitter.prototype.on = function(EventsObjectProperty, listener) {
+    this.events[EventsObjectProperty] = this.events[EventsObjectProperty] || [];
+    this.events[EventsObjectProperty].push(listener);
+}
+
+Emitter.prototype.emit = function(EventObjectProperty) {
+    if(this.events[EventObjectProperty]) {
+        this.events[EventObjectProperty].forEach(function(listener) {
+            listener();
+        });
     }
+}
+
+module.exports = Emitter;
