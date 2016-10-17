@@ -5,9 +5,8 @@ function greet() {
         console.log(greeting);
 }
 
-exports = {
+module.exports = {
     greet: greet   
     }
-
-console.log(exports);
-console.log(module.exports);
+    console.log(module.exports);
+    console.log(exports);
