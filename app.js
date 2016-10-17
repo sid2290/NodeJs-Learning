@@ -1,12 +1,13 @@
 var Emitter = require('events');
 
 var emtr = new Emitter();
+var eventConfig = require('./config').events;
 
-emtr.on('greet', function() {
+emtr.on(eventConfig.GREET, function() {
     console.log('Somewhere, someone said hello.');
 });
 
-emtr.on('greet', function() {
+emtr.on(eventConfig.GREET, function() {
     console.log('A greeting occured!');
 });
 
