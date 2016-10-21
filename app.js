@@ -1,14 +1,18 @@
-var EventEmitter = require('events');
+
 var util = require('util');
+var person = require('./person');
+var policeman = require('./policeman');
 
-var Greetr = require('./greet');
 
-util.inherits(Greetr, EventEmitter);
+util.inherits(policeman, person);
+var person = new person();
+person.greet();
+console.log(person);
 
-var greeter = new Greetr();
+var policeman = new policeman('1234');
 
-greeter.on('greet', function() {
-    console.log('Somewhere, someone said hello.')
-});
 
-greeter.greet();
+policeman.greet();
+console.log(policeman);
+
+
