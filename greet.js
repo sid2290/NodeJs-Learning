@@ -1,19 +1,9 @@
-// Function constructor
-function Emitter() {
-    this.events = {};
+function Greetr() {
+    this.greeting = 'Hello World!';
 }
 
-Emitter.prototype.on = function(EventsObjectProperty, listener) {
-    this.events[EventsObjectProperty] = this.events[EventsObjectProperty] || [];
-    this.events[EventsObjectProperty].push(listener);
+Greetr.prototype.greet = function() {
+    console.log(this.greeting);
+    this.emit('greet');
 }
-
-Emitter.prototype.emit = function(EventObjectProperty) {
-    if(this.events[EventObjectProperty]) {
-        this.events[EventObjectProperty].forEach(function(listener) {
-            listener();
-        });
-    }
-}
-
-module.exports = Emitter;
+module.exports = Greetr;
