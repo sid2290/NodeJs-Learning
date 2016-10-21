@@ -1,13 +1,18 @@
-var person = require('./person');
-var policeman = require('./policeman');
 
-var person = new person();
-person.greet();
-console.log(person);
+//buffers in node
+var buf = new Buffer('Hello','utf8');
 
-var policeman = new policeman('1234');
+console.log(buf);
 
-policeman.greet();
-console.log(policeman);
+// ES6 gives the way to deal with buffer
+var buffer = new ArrayBuffer(8);
+var view = new Int32Array(buffer);
+
+view[0] = 5;
+view[1] = 15;
+
+console.log(view);
+
+
 
 

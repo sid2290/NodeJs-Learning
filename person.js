@@ -1,10 +1,10 @@
+'use strict';
 class Person {
     constructor () {
         this.firstname = "sid";
         this.lastname = "narang";
     }
 }
-
 
 Person.prototype.greet = function () {
 
