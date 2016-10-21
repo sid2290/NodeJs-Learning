@@ -1,18 +1,14 @@
+var fs = require('fs');
 
-//buffers in node
-var buf = new Buffer('Hello','utf8');
+// Node way of dealing with the files synchronously
+var greet = fs.readFileSync(__dirname + '/greet.txt', 'utf8');
 
-console.log(buf);
+console.log(greet);
 
-// ES6 gives the way to deal with buffer
-var buffer = new ArrayBuffer(8);
-var view = new Int32Array(buffer);
-
-view[0] = 5;
-view[1] = 15;
-
-console.log(view);
-
-
+// Node way of dealing with the files asynchronously
+var greet2 = fs.readFile(__dirname + '/greet.txt','utf8' , function(err, data) {
+        console.log(data);
+});
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Done~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 
 
