@@ -1,14 +1,16 @@
 var fs = require('fs');
 
-// Node way of dealing with the files synchronously
-var greet = fs.readFileSync(__dirname + '/greet.txt', 'utf8');
+var readable = fs.createReadStream(__dirname + '/greet.txt','utf8');
 
-console.log(greet);
+var writable = fs.createWriteStream(__dirname + '/greetcopy.txt');
 
-// Node way of dealing with the files asynchronously
-var greet2 = fs.readFile(__dirname + '/greet.txt','utf8' , function(err, data) {
-        console.log(data);
+readable.on('data', function (chunk) {
+    console.log(chunk);
+    writable.write(chunk);
 });
-console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Done~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 
+var readable1 = fs.createReadStream(__dirname + '/greet.txt','utf8');
 
+var writable1 = fs.createWriteStream(__dirname + '/greetcopy1.txt');
+
+readable1.pipe(writable1);
